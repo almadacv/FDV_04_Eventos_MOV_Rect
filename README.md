@@ -31,6 +31,7 @@ Disponemos de dos cápsulas que _teletransportan cualquier objeto_ que entre en 
     }
 ```
 
+
 __Resultado:__
 
 ![Eventos y Movimiento rectilíneo.](https://github.com/almadacv/fdv_04/blob/master/Gif/Events.gif)

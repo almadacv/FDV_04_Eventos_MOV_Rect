@@ -1,24 +1,17 @@
 # Eventos y Movimiento Rectilíneo
 
-Crear un script para mover al objeto jugador con los ejes Horizontal y Vertical
-Implementar una UI que permita configurar con qué velocidad te moverás: turbo o normal. También debe mostar la cantidad de objetos recolectados y si chocas con alguno especial restar fuerza.
-Agregar a tu escena un objeto que al ser recolectado por el jugador haga que otro objetos obstáculos se desplacen de su trayectoria.
-Agrega un objeto que te teletransporte a otra zona de la escena.
-Agrega un personaje que se dirija hacia un objetivo estático en la escena.
- Agrega un personaje que siga el movimiento del jugador
+El __jugador__ (paralelepípedo morado) se mueve usando los _eje_  y el método _Slerp de Quaternion_ para __suavizar__ los movimientos.
 
-O player (parallelepipedo roxo) é movimentado fazendo uso dos eixos e o metdodo Slerp de Quaternion para suavizar os movimentos.
+Tenemos 2 textos en la esquina superior derecha, que contienen _información sobre la salud del jugador y su puntuación_.
+En la esquina inferior izquierda tenemos un _botón que alterna la velocidad del jugador entre normal y Turbo_, alternando también el color y el texto que se muestra.
 
-Temos 2 textos no canto superior direito, contento informaçoes sobre a saude do jugador e a sua pontuaçao.
-No canto inferior esquerdo temos um botao que alterna a velocidade do jugador entre normal e Turbo, alternando tambem e a cor e o texto mostrado.
+En la escena tenemos cilindros que al tocar al jugador _reducen su salud_, actualizando el texto que contiene información sobre la salud del jugador.
+Del mismo modo, disponemos de cilindros que al contactar con el jugador _aumentan su puntuación_ y actualizan la información sobre su puntuación.
 
-Na cena, temos cilindros que ao tocarem no jugador reduzem a sua saude, atualizando o texto que contem as informaçoes sobre a saude do jugador.
-De mesmo modo, temos cilindros que ao entrar em contacto com o jugador, aumentam a sua pontuaçao e atualiza a informaçao sobre a pontuaçao do mesmo.
+Tenemos un cilindro verde, que conduce al cubo naranja que encuentra en medio de la escena, mientras que la esfera roja _sigue el movimiento_ del jugador, ambos contienen una _referencia al GameOject que tiene que seguir y actualizan su posición según el referencia_.
+Cuando el jugador entra en contacto con el cubo naranja, _se desencadena un evento_ que, al _ser capturado por los objetos que están suscritos al evento_, se les aplica una fuerza.
 
-Temos um cilindro verde, que dirige ao cubo laranja que encontra no meio da cena, enquanto a esfera vermelha segue o movimento do jugador, ambos contendo uma referencia ao GameOject que tem que seguir e atualizando a sua posiçao de acordo com a referencia.
-O jugador ao entrar em contacto com o cubo laranja, dispara um evento que ao ser captado pelos objectos que estao subscritos ao evento, e aplicado uma força sobre os mesmo.
-
-Temos duas capsulas que teletransportam qualquer objecto que entre em contacto com eles. Cada capsula contem referencia sobre o outro, e para evitar que duplique o objecto que entre em contacto com a capsula, temos uma variavel boolena  bool isJiterring = false; que é atualizado de acordo com o codigo abaixo:
+Disponemos de dos cápsulas que _teletransportan cualquier objeto_ que entre en contacto con ellas. Cada cápsula _contiene una referencia a la otra_, y para evitar duplicar el objeto que entra en contacto con la cápsula, tenemos una variable booleana `bool isJiterring = false`; que se actualiza de acuerdo con el siguiente código:
 
 ```C#
  public GameObject Teleport1;
@@ -38,4 +31,5 @@ Temos duas capsulas que teletransportam qualquer objecto que entre em contacto c
     }
 ```
 
-![Eventos y Movimiento rectilíneo.](https://github.com/almadacv/EventosMovimientoRectilíneo/blob/main/Gif/Events.gif)
+![Eventos y Movimiento rectilíneo.](https://github.com/almadacv/fdv_04/blob/master/Gif/Events.gif)
+
